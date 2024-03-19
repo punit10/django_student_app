@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Scores are as follows </h1>
+<ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About Us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'contact_tag' %}" >Contact Us</a>
+    </li>
+  </ul>
+<h1>Mid Term Scores</h1>
 <form method="POST" action="{% url 'index' %}">
-<table border="1">
+<table class="table table-bordered table-success">
 {% csrf_token %}    
-    <tr><th>Name</th> <th>Marks</th><th>Action</th></tr>
+    <tr class="table-warning"><th>Name</th> <th>Marks</th><th>Action</th></tr>
     {% if not form.instance.id %}
     <tr>
        {% include 'save.html' %}
@@ -17,8 +25,8 @@
         {% else %}
         <td>{{item.name}}</td>
         <td>{{item.marks}}</td>
-        <td><button formnovalidate name="edit" value="{{ item.id }}">Edit</button>
-            <button formnovalidate name="delete" value="{{ item.id }}">Delete</button>
+        <td><button formnovalidate class="btn btn-primary" name="edit" value="{{ item.id }}">Edit</button>
+            <button formnovalidate class="btn btn-danger" name="delete" value="{{ item.id }}">Delete</button>
         </td>
         {% endif %}
     </tr>

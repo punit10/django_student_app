@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Fill Details to Contact Us</h1>
-<a href="{% url 'index' %}">Go Home</a>
-<a href="{% url 'about' %} ">About us</a>
+<ul class="nav justify-content-end">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}" >Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'about' %}">About Us</a>
+    </li>
+  </ul>
+<h1>Contact Us</h1>
+<p> Email: owner@example.com </p>
+<p>Contact: 9999000099 </p>
 {% endblock %}
