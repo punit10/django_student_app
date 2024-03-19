@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Index Hello World </h1>
+<h1>Scores are as follows </h1>
+<table border="2">
+    <tr><th>Name</th> <th>Marks</th></tr>
+    {% for item in student_data %}
+    <tr>
+        <td>{{item.name}}</td>
+        <td>{{item.marks}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
 <!-- \urls template tagging name=about and contact_tag -->
 <a href="{% url 'about' %} ">About us</a>
 <a href="{% url 'contact_tag' %}">Contact Us </a>

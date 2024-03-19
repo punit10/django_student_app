@@ -1,13 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Score
 # Create your views here.
-
+context = {}
 def index(request):
     # return HttpResponse("Hello wordls")
-    return render(request, 'index.html')    
+    scores = Score.objects.all()
+    context['student_data'] = scores
+    context['title'] = 'Home'
+    return render(request, 'index.html', context)    
 
 def about(request):
-    return render(request, 'about.html') 
+    context['title'] = 'About'
+    return render(request, 'about.html', context) 
 
 def contactus(request):
-    return render(request, 'contact.html') 
+    context['title'] = 'Contact Us'
+    return render(request, 'contact.html', context) 
