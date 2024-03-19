@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Django Student </title>
-    </head>
-    <body>
-        <h1>Index Page</h1>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<h1>Index Hello World </h1>
+<!-- \urls template tagging name=about and contact_tag -->
+<a href="{% url 'about' %} ">About us</a>
+<a href="{% url 'contact_tag' %}">Contact Us </a>
+{% endblock %}
