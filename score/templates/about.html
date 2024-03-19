@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul class="nav justify-content-end">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}" >Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'contact_tag' %}" >Contact Us</a>
+    </li>
+  </ul>
+<h1>About Us</h1>
+<p>I am Prem, A Computer Science Engineer by profession, and a dreamer, traveler, and Toastmaster by passion (the list will keep increasing).
+    Here, you can find content related to self-help, motivation, public speaking, a few productivity hacks and what I learn in my everyday life, some gorgeous cities I have been to, and much more.
+    Hope you all find it useful!</p>
+<span></span>
+{% endblock %}
