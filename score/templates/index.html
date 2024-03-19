@@ -1,15 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Scores are as follows </h1>
-<table border="2">
-    <tr><th>Name</th> <th>Marks</th></tr>
+<form method="POST" action="{% url 'index' %}">
+<table border="1">
+{% csrf_token %}    
+    <tr><th>Name</th> <th>Marks</th><th>Action</th></tr>
+    {% if not form.instance.id %}
+    <tr>
+       {% include 'save.html' %}
+    </tr>
+    {% endif %}
     {% for item in student_data %}
     <tr>
+        {% if form.instance.id == item.id %}
+        {% include 'save.html' %}
+        {% else %}
         <td>{{item.name}}</td>
         <td>{{item.marks}}</td>
+        <td><button formnovalidate name="edit" value="{{ item.id }}">Edit</button>
+            <button formnovalidate name="delete" value="{{ item.id }}">Delete</button>
+        </td>
+        {% endif %}
     </tr>
     {% endfor %}
 </table>
+</form>
 <br>
 <!-- \urls template tagging name=about and contact_tag -->
 <a href="{% url 'about' %} ">About us</a>
