@@ -131,16 +131,18 @@ sudo chmod 707 django.conf
 vi django.conf
 
 <paste code change server name>
-  
+
+#### Code starts  
 server{
 	listen 80;
-	server_name "ec2 public IP" ;
+	server_name <<ec2 public IP>>;
  
 	location / {
 		include proxy_params;
 		proxy_pass http://unix:/home/ubuntu/student/app.sock;
 	}
 }
+#### Code ends
 
 sudo nginx -t
 
