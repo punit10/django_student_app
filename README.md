@@ -122,7 +122,7 @@ sudo chmod 707 nginx.conf
 
 vi nginx.conf
 
-<change user to root>
+"# change user to root"
   
 sudo touch django.conf
 
