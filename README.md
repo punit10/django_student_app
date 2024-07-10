@@ -94,6 +94,7 @@ stderr_logfile=/var/log/gunicorn/gunicorn.err.log
 stdout_logfile=/var/log/gunicorn/gunicorn.out.log
 
 [group:guni]
+
 programs:gunicorn
 <code end>
 
