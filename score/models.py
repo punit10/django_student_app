@@ -4,6 +4,7 @@ from django.db import models
 class Score(models.Model):
     name = models.CharField(max_length=40)
     marks = models.PositiveSmallIntegerField()
+    student_photo = models.ImageField(upload_to='images/')
 
     def __str__(self) -> str:
         return self.name

@@ -19,11 +19,14 @@ def index(request):
             std_id = request.POST.get('save')
 
             if not std_id: #empty means add new row
-                form = form = ScoreForm(request.POST)
+                form = ScoreForm(request.POST, request.FILES)
             else:
                 student = Score.objects.get(id=std_id)
-                form = ScoreForm(request.POST, instance=student)    
-            form.save()
+                form = ScoreForm(request.POST, request.FILES, instance=student)
+
+            if form.is_valid():
+                form.save()
+            #form.save()
             form = ScoreForm()
         elif 'delete' in request.POST:
             std_id = request.POST.get('delete')
@@ -33,7 +36,6 @@ def index(request):
             std_id = request.POST.get('edit')
             student = Score.objects.get(id=std_id) 
             form = ScoreForm(instance=student)
-                   
     context['form'] = form
     return render(request, 'index.html', context)    
 

@@ -1,7 +1,8 @@
 from django import forms
-from score.models import Score
+from .models import Score
+
 
 class ScoreForm(forms.ModelForm):
     class Meta:
         model = Score
-        fields = ['name', 'marks']
+        fields = ['name', 'marks', 'student_photo']

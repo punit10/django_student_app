@@ -10,10 +10,10 @@
   </ul>
 <h1>Student App</h1>
 <h5>Mid Term Scores</h5>
-<form method="POST" action="{% url 'index' %}">
+<form method="POST" action="{% url 'index' %}" enctype='multipart/form-data'>
 <table class="table table-bordered table-success">
 {% csrf_token %}    
-    <tr class="table-warning"><th>Name</th> <th>Marks</th><th>Action</th></tr>
+    <tr class="table-warning"><th>Name</th> <th>Marks</th><th>Image</th><th>Action</th></tr>
     {% if not form.instance.id %}
     <tr>
        {% include 'save.html' %}
@@ -26,6 +26,9 @@
         {% else %}
         <td>{{item.name}}</td>
         <td>{{item.marks}}</td>
+        <td> <img src="{{item.student_photo.url}}"
+                  class="img-responsive"
+                  style="height: 150px; width: 100px; float: center; border: 2px solid;" /></td>
         <td><button formnovalidate class="btn btn-primary" name="edit" value="{{ item.id }}">Edit</button>
             <button formnovalidate class="btn btn-danger" name="delete" value="{{ item.id }}">Delete</button>
         </td>
