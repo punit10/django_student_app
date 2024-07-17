@@ -39,6 +39,8 @@ sudo apt-get update
 
 sudo apt-get upgrade
 
+python3 -V
+
 sudo apt-get install python3-venv
 
 python3 -m venv djangoEnv
@@ -53,15 +55,13 @@ source djangoEnv/bin/activate
 
 **Setting up Nginx and gunicorn**
 
-sudo apt-get install python3-venv
-
 python3 -m venv djangoEnv
 
 source djangoEnv/bin/activate
 
 pip3 install django
 
-git clone https://github.com/punit10/django_student_app.git
+git clone https://github.com/punit10/django_student_app.git student
 
 mv django_student_app/ student
 
