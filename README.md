@@ -33,8 +33,6 @@ usermod -aG sudo punit
 
 su - punit
 
-python -V
-
 sudo apt-get update
 
 sudo apt-get upgrade
