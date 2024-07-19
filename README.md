@@ -80,15 +80,18 @@ sudo chmod 707 gunicorn.conf
 vi gunicorn.conf
 
 <paste below code>
-  
 [program:gunicorn]
-
+	
 directory=/home/ubuntu/student
 
 command=/home/ubuntu/djangoEnv/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/student/app.sock student.wsgi:application  
+
 autostart=true
+
 autorestart=true
+
 stderr_logfile=/var/log/gunicorn/gunicorn.err.log
+
 stdout_logfile=/var/log/gunicorn/gunicorn.out.log
 
 [group:guni]
