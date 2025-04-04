@@ -26,9 +26,13 @@
         {% else %}
         <td>{{item.name}}</td>
         <td>{{item.marks}}</td>
-        <td> <img src="{{item.student_photo.url}}"
+        <td> 
+          {% if item.student_photo %}
+          <img src="{{item.student_photo.url}}"
                   class="img-responsive"
-                  style="height: 150px; width: 100px; float: center; border: 2px solid;" /></td>
+                  style="height: 150px; width: 100px; float: center; border: 2px solid;" />
+          {% endif %}
+          </td>
         <td><button formnovalidate class="btn btn-primary" name="edit" value="{{ item.id }}">Edit</button>
             <button formnovalidate class="btn btn-danger" name="delete" value="{{ item.id }}">Delete</button>
         </td>

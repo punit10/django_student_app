@@ -17,6 +17,8 @@ pipenv install django
 
 pipenv shell
 
+pip install -r requirements.txt 
+
 python -c "import os, sys; print(os.path.dirname(sys.executable))"
 
 **EC2 Instance Setup** 
